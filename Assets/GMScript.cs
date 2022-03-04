@@ -359,7 +359,19 @@ public class GMScript : MonoBehaviour
         var enemyGoLeft = ShiftPiece(piece, -1, 0, false);
         var enemyGoRight = ShiftPiece(piece, 1, 0, false);
         var enemyGoRotate = RotatePiece(piece, false);
-        Vector3Int[][] enemyOptions = {enemyGoLeft, enemyGoRight, enemyGoRotate, piece};
+
+        var enLef = ShiftPiece(piece, -2, 0, false);
+        var enRig = ShiftPiece(piece, 2, 0, false);
+        var enRot = RotatePiece(RotatePiece(piece, false), false);
+        var enLef2 = ShiftPiece(piece, -3, 0, true);
+        var enRig2 = ShiftPiece(piece, 3, 0, true);
+        var enRot2 = RotatePiece(RotatePiece(piece, true), false);
+
+        Vector3Int[][] enemyOptions = {enemyGoLeft, enemyGoRight, enemyGoRotate, enLef,
+            enRig, enRot, enLef2, enRig2, enRot2, piece};
+
+
+        
         var validOptions = enemyOptions.Where(p => ValidPiece(p, false)).ToArray();
         if (!validOptions.Any()) return piece;
         var maxScore = validOptions.Max(p => EvaluateEnemyPieceScore(p, _enemyChunk));
