@@ -6,3 +6,9 @@
 4. Hit run?
 
 Apologies for the mess. YMMV.
+
+AHGGGGG just realized my push did not work lol. sorry.
+
+
+I just added more moves for the AI to a point it seems to result in slightly better CPU.
+Otherwise, I honestly did not do mcuh.
